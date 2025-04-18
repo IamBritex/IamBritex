@@ -34,9 +34,13 @@
 <br>
 
 <div align="center">
-  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=IamBritex&show_icons=true&theme=radical&include_all_commits=true&count_private=true"/>
-  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=IamBritex&layout=compact&langs_count=7&theme=radical"/>
+  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=IamBritex&show_icons=true&theme=radical&include_all_commits=true&count_private=true&hide_border=true"/>
+  
+  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=IamBritex&layout=compact&langs_count=7&theme=radical&hide_border=true"/>
+  
   <img width="100%" src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=IamBritex&theme=radical"/>
+
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=IamBritex&theme=radical&hide_border=true"/>
 </div>
 
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif"><br><br>
