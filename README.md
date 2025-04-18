@@ -3,8 +3,8 @@
   <p> Desarrollador de Software | Estudiante | Entusiasta de la Tecnología </p>
 
   <p>
-    <a href="https://iambritex.github.io/FNF-Genesis-Engine/>"><img src="https://i.pinimg.com/736x/91/5b/99/915b999a4f7f8423ed3df4670c6ba648.jpg" width="100%" height="auto" alt="Banner"></img></a>
-    <a href="https://www.youtube.com/@IamBritex"><img src="https://img.shields.io/badge/-YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white"></img></a>
+    <a href="https://iambritex.github.io/FNF-Genesis-Engine/"><img src="https://i.pinimg.com/736x/91/5b/99/915b999a4f7f8423ed3df4670c6ba648.jpg" width="100%" height="auto" alt="Banner"></img></a>
+    <a href="https://www.youtube.com/@ImBritex"><img src="https://img.shields.io/badge/-YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white"></img></a>
   </p>
 </div>
 
