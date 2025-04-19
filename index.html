@@ -1,90 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BRITEX</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="styles/index.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Just Britex</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/3.87.0/phaser.min.js" integrity="sha512-e251dDfxfj70o3iWsf84M612cWbWdTXjVbFXA7MavobTcKB1sCLV+WNiduc20UrpWLXRgi1tgob1TOAfySx9Xg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 </head>
-<body>
-    <nav class="navbar">
-        <div class="nav-content">
-            <a href="#" class="logo">BRITEX</a>
-            <ul class="nav-links">
-                <li><a href="#" class="active">Principal</a></li>
-                <li><a href="./contacto.html">Contacto</a></li>
-                <li><a href="./proyectos.html">Proyectos</a></li>
-            </ul>
-        </div>
-    </nav>
+<body id="phaser-cam-fx">
+  <div class="center-container">
+    <div class="card">
+      <div class="card-title">HEY THERE! I'm Britex</div>
+      <div class="card-subtitle">
+        <span>Developer</span>
+        <span class="dot"></span>
+        <span>Youtuber</span>
+        <span class="dot"></span>
+        <span>Student</span>
+      </div>
+      <div class="card-buttons">
+        <button title="About">
+          <span class="material-symbols-outlined">emoji_people</span>
+          <span>About</span>
+        </button>
+        <button title="Links">
+          <span class="material-symbols-outlined">link</span>
+          <span>Links</span>
+        </button>
+        <button title="Work">
+          <span class="material-symbols-outlined">work</span>
+          <span>Work</span>
+        </button>
+        <button title="Faq">
+          <span class="material-symbols-outlined">help</span>
+          <span>Faq</span>
+        </button>
+        <button title="Contact">
+          <span class="material-symbols-outlined">mail</span>
+          <span>Contact</span>
+        </button>
+      </div>
+    </div>
+  </div>
 
-    <main class="main-content">
-        <div class="card">
-            <div class="content">
-                <div class="text-content">
-                    <div class="title-block">
-                        <h1 class="title">BRITEX</h1>
-                        <span class="japanese-text">ブリテックス</span>
-                    </div>
-                    <div class="about-section">
-                        <h2 id="greeting"></h2>
-                        <p class="about-text">
-                            ¿Te interesa saber más sobre mí? Entonces, bienvenido a mi espacio creativo.
-                            Aquí podrás descubrir mis redes sociales, conocer a las personas que me rodean,
-                            explorar mis proyectos, encontrar formas de contactarme, ¡y hasta disfrutar
-                            de mi blog para conocerme aún mejor!
-                        </p>
-                    </div>
-                    <h2 class="title-redes">Mis redes sociales:</h2>
-                    <div class="social-links">
-                        <a href="https://www.youtube.com/@ImBritex" class="social-link">
-                            <i class="fab fa-youtube"></i>
-                            <span>YouTube</span>
-                        </a>
-                        <a href="https://x.com/ChetepO" class="social-link">
-                            <i class="fab fa-twitter"></i>
-                            <span>Twitter</span>
-                        </a>
-                        <a href="https://www.instagram.com/iam.britex/" class="social-link">
-                            <i class="fab fa-instagram"></i>
-                            <span>Instagram</span>
-                        </a>
-                        <a href="https://www.tiktok.com/@britext" class="social-link">
-                            <i class="fab fa-tiktok"></i>
-                            <span>TikTok</span>
-                        </a>
-                        <a href="https://github.com/IamBritex/IamBritex.git" class="social-link">
-                            <i class="fab fa-discord"></i>
-                            <span>Discord</span>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="image-section">
-                    <div class="circle-bg"></div>
-                    <img src="images/pfp.jpeg" alt="Creator portrait" class="creator-image">
-                </div>
-            </div>
-        </div>
-    </main>
+  <div id="character-container">
+    <img id="character-gif" src="assets/sprites/bloggif_frames_gif/frame-01.gif" alt="Character">
+  </div>
 
-    <script>
-        function updateGreeting() {
-            const now = new Date();
-            const hour = now.getHours();
-            const greetingElement = document.getElementById("greeting");
-    
-            if (hour >= 5 && hour < 12) {
-                greetingElement.textContent = "Buenos días";
-            } else if (hour >= 12 && hour < 20) {
-                greetingElement.textContent = "Buenas tardes";
-            } else {
-                greetingElement.textContent = "Buenas noches";
-            }
-        }
-    
-        window.onload = updateGreeting;
-    </script>
+  <div id="phaser-cam-fx" style="position:fixed;left:0;top:0;width:100vw;height:100vh;pointer-events:none;z-index:1;"></div>
+
+  <div id="modal" class="modal" style="display:none;">
+    <div class="modal-content" id="modalContent">
+      <div id="modalHeader" style="cursor: move; user-select: none;">
+        <span class="close-modal" id="closeModal">&times;</span>
+      </div>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <footer>
+    <div style="text-align:center; margin-bottom: 1rem;">
+        <a href="https://twitter.com/" target="_blank" style="margin:0 0.5rem;">
+          <svg width="15" height="15" fill="#fff" viewBox="0 0 24 24"><path d="M24 4.557a9.93 9.93 0 0 1-2.828.775 4.932 4.932 0 0 0 2.165-2.724c-.951.564-2.005.974-3.127 1.195a4.92 4.92 0 0 0-8.384 4.482C7.691 8.095 4.066 6.13 1.64 3.161c-.542.929-.856 2.01-.857 3.17 0 2.188 1.115 4.117 2.823 5.247a4.904 4.904 0 0 1-2.229-.616c-.054 2.281 1.581 4.415 3.949 4.89a4.936 4.936 0 0 1-2.224.084c.627 1.956 2.444 3.377 4.6 3.417A9.867 9.867 0 0 1 0 21.543a13.94 13.94 0 0 0 7.548 2.209c9.058 0 14.009-7.513 14.009-14.009 0-.213-.005-.425-.014-.636A10.012 10.012 0 0 0 24 4.557z"/></svg>
+        </a>
+        <a href="https://www.youtube.com/@ImBritex" target="_blank" style="margin:0 0.5rem;">
+          <svg width="15" height="15" fill="#fff" viewBox="0 0 24 24"><path d="M23.498 6.186a2.994 2.994 0 0 0-2.112-2.112C19.447 3.5 12 3.5 12 3.5s-7.447 0-9.386.574A2.994 2.994 0 0 0 .502 6.186C0 8.126 0 12 0 12s0 3.874.502 5.814a2.994 2.994 0 0 0 2.112 2.112C4.553 20.5 12 20.5 12 20.5s7.447 0 9.386-.574a2.994 2.994 0 0 0 2.112-2.112C24 15.874 24 12 24 12s0-3.874-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        </a>
+      </div>
+    &copy; 2025 Britex
+  </footer>
+
+  <script src="js/CameraPage.js"></script>
+  <script src="js/iconsReact.js"></script>
+  <script src="js/ModalWindow.js"></script>
+  <script src="js/CharacterMusic.js"></script>
 </body>
 </html>

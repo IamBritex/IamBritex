@@ -1,51 +1,243 @@
+html, body {
+  overflow: hidden !important;
+}
+
 body {
-    margin: 0;
-    font-family: 'Arial', sans-serif;
-    background-color: #e7e4f2;
-  }
-  
-  .container {
-    margin: 20px auto;
-    max-width: 900px;
-    background: white;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-  }
-  
-  .navbar ul {
-    display: flex;
-    justify-content: space-around;
-    background: #6e3aa7;
-    margin: 0;
-    padding: 10px;
-    list-style: none;
-  }
-  
-  .navbar ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  
-  .content {
-    display: flex;
-    padding: 20px;
-    align-items: center;
-    justify-content: space-between;
-  }
-  
-  .text h1 {
-    font-size: 2.5rem;
-    color: #6e3aa7;
-  }
-  
-  .text p {
-    color: #333;
-  }
-  
-  .image img {
-    max-width: 300px;
-    border-radius: 10px;
-  }
-  
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #000;
+  min-height: 100vh;
+  color: #fafafa; 
+  display: flex;
+  flex-direction: column;
+  overflow: none;
+}
+.center-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card {
+  background: transparent; /* fondo casi negro y translúcido */
+  padding: 2.5rem 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px #000c;
+  text-align: center;
+  min-width: 340px;
+  max-width: 95vw;
+  border: 2px solid #fff; /* borde blanco para alto contraste */
+  backdrop-filter: blur(8px);
+}
+.card-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  color: #fff;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 8px #000;
+}
+.card-subtitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  color: #b0b0b0;
+  letter-spacing: 0.5px;
+}
+.card-subtitle .dot {
+  width: 6px;
+  height: 6px;
+  background: white;
+  border-radius: 50%;
+  display: inline-block;
+}
+.card-buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  justify-content: center;
+}
+.card-buttons button {
+  padding: 0.8rem 1.5rem;
+  border: 2px solid #fff;
+  border-radius: 8px;
+  background: transparent;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+  box-shadow: 0 2px 8px #000a;
+  outline: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.card-buttons button:focus,
+.card-buttons button:hover {
+  background: #fff;
+  color: #000;
+}
+.material-symbols-outlined {
+  font-size: 32px;
+  color: #fff;
+  transition: color 0.2s;
+  display: block;
+  margin: 0 auto 4px auto;
+}
+
+.card-buttons button:hover .material-symbols-outlined,
+.card-buttons button:focus .material-symbols-outlined {
+  color: #000;
+}
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: transparent;
+  border-top: 2px solid #fff;
+  color: #fafafa;
+  letter-spacing: 1px;
+}
+footer a {
+  text-decoration: none;
+}
+
+/* Efectos*/
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  20% { transform: translateX(-4px); }
+  40% { transform: translateX(4px); }
+  60% { transform: translateX(-4px); }
+  80% { transform: translateX(4px); }
+  100% { transform: translateX(0); }
+}
+
+.shake {
+  animation: shake 0.4s;
+}
+
+.zoom-effect {
+  transition: transform 0.15s cubic-bezier(.4,2,.6,1);
+  transform: scale(1.04);
+}
+
+.body-zoom {
+  transition: transform 0.18s cubic-bezier(.4,2,.6,1);
+  will-change: transform;
+}
+
+/* Ventanas modales */
+
+.modal {
+  position: fixed;
+  z-index: 1000;
+  left: 0; top: 0;
+  width: 100vw; height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+.modal-content {
+  background: #000;
+  color: #fff;
+  padding: 2rem 2rem 2rem 2rem; /* Más padding */
+  border-radius: 12px;
+  min-width: 350px;
+  max-width: 700px;
+  width: 90vw;
+  max-height: 80vh;           /* Limita la altura máxima */
+  position: relative;
+  box-shadow: 0 4px 24px #000c;
+  margin-top: 2rem;
+  pointer-events: auto;
+  border: 2px solid #fff;
+  overflow: auto;             /* Scroll interno si hay mucho contenido */
+}
+.modal-content ::-webkit-scrollbar {
+  width: 8px;
+  background: #222;
+}
+.modal-content ::-webkit-scrollbar-thumb {
+  background: #444;
+  border-radius: 6px;
+}
+.close-modal {
+  position: absolute;
+  top: 50%;
+  right: 0.8rem;
+  transform: translateY(-50%); /* Centra verticalmente */
+  font-size: 1.2rem; /* Reducido el tamaño */
+  cursor: pointer;
+  color: #fff;
+  transition: color 0.2s, background 0.2s;
+  border-radius: 6px;
+  min-width: 2rem; /* Reducido */
+  min-height: 2rem; /* Reducido */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 0;
+  box-sizing: border-box;
+}
+.close-modal:hover {
+  color: #fff;
+  background: #e53935;
+}
+
+#modalHeader {
+  width: 100%;
+  min-height: 2rem; 
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  user-select: none;
+  border-bottom: 2px solid #fff;
+  position: relative;
+}
+
+.modal-title {
+  flex: 1;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+/*CHARACTER GF*/
+
+#character-container {
+  position: fixed;
+  bottom: 4vw;
+  right: 2vw;
+  z-index: 100;
+  width: 32vw;      /* Responsivo: hasta 32% del ancho de la ventana */
+  max-width: 350px; /* No más grande que 350px */
+  min-width: 100px; /* No más pequeño que 100px */
+  height: auto;
+  pointer-events: none; /* Permite clics solo en la imagen */
+}
+
+.character-sprite {
+  width: 350px;
+  height: auto;
+  display: block;
+}
+
+#character-gif {
+  width: 100%;
+  height: auto;
+  min-width: 80px;
+  max-width: 350px;
+  cursor: pointer;
+  display: block;
+  pointer-events: auto; /* Permite clics en la imagen */
+}
