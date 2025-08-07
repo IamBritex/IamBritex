@@ -160,7 +160,7 @@ const britex = {
   <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Waving%20Hand.png" width="25" /> **¿Tienes una idea? ¡Hablemos!**
   
   <p>
-    <a href="mailto:your.email@example.com">
+    <a href="mailto:leivetd@gmail.com">
       <img src="https://img.shields.io/badge/-Email-D14836?style=for-the-badge&logo=gmail&logoColor=white"/>
     </a>
     <a href="https://discord.gg/XsgpgvjQ8p">
