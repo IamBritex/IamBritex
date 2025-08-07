@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Britex - Desarrollador y Creador de Contenido</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <!-- Sección de Perfil - MEJORADA -->
+        <section id="profile-header">
+            <div class="container">
+
+                <!-- Profile Info - Estilo Discord -->
+                <div class="discord-profile">
+                    <!-- Banner dentro de la card -->
+                    <div class="discord-banner"></div>
+                    
+                    <!-- Profile Header -->
+                    <div class="profile-header">
+                        <div class="pfp-container">
+                            <div class="pfp"></div>
+                            <div class="status-indicator online"></div>
+                        </div>
+                        <div class="profile-badges">
+                            <span class="badge developer">DEV</span>
+                            <span class="badge creator">CREATOR</span>
+                        </div>
+                    </div>
+
+                    <!-- Profile Info -->
+                    <div class="profile-info">
+                        <h2 class="username">
+                            Britex
+                            <span class="discriminator">#8696</span>
+                        </h2>
+                        <p class="display-name">@IamBritex</p>
+                        <p class="custom-status">
+                            <i class="fas fa-code"></i>
+                            Take Your Time...
+                        </p>
+                    </div>
+
+                    <!-- Profile Sections -->
+                    <div class="profile-sections">
+                        <!-- About Me -->
+                        <div class="profile-section">
+                            <h3>ACERCA DE MÍ</h3>
+                            <p>Tengo 16 años y actualmente curso preparatoria, pero mi verdadera pasión está en el desarrollo web. Me especializo en JavaScript, HTML y CSS, y trabajo exclusivamente en entornos Linux porque me encanta la libertad y control que me ofrece.</p>
+                            <br>
+                            <p>Como Creador de Contenido: Produzco contenido educativo y entretenido para YouTube, TikTok e Instagram, donde comparto mi experiencia en programación, tutoriales de desarrollo web, y mi proceso creativo. Mi objetivo es hacer la programación más accesible para todos.</p>
+                            <br>
+                            <p>Mis Intereses Artísticos: Practico locución profesional, doblaje y escritura creativa (guiones y poesía). Estas habilidades no solo complementan mi trabajo técnico, sino que me dan una perspectiva única para crear contenido que conecte tanto técnica como emocionalmente con mi audiencia.</p>
+                            <br>
+                            <p>Mi Filosofía: Creo firmemente que la tecnología debe ser accesible para todos. Por eso desarrollo herramientas que permitan a cualquier persona crear sin necesidad de conocimientos técnicos avanzados.</p>
+                        </div>
+
+                        <!-- Redes Sociales -->
+                        <div class="profile-section">
+                            <h3>REDES SOCIALES</h3>
+                            <div class="social-links">
+                                <a href="https://github.com/IamBritex" class="social-link" target="_blank">
+                                    <i class="fab fa-github"></i>
+                                    <span>GitHub</span>
+                                    <span class="followers-count" id="github-followers">...</span>
+                                </a>
+                                <a href="https://www.youtube.com/@ImBritex" class="social-link" target="_blank">
+                                    <i class="fab fa-youtube"></i>
+                                    <span>YouTube</span>
+                                    <span class="followers-count" id="youtube-subscribers">...</span>
+                                </a>
+                                <a href="https://tiktok.com/@britext" class="social-link" target="_blank">
+                                    <i class="fab fa-tiktok"></i>
+                                    <span>TikTok</span>
+                                    <span class="followers-count" id="tiktok-followers">...</span>
+                                </a>
+                                <a href="https://instagram.com/imbritex" class="social-link" target="_blank">
+                                    <i class="fab fa-instagram"></i>
+                                    <span>Instagram</span>
+                                    <span class="followers-count" id="instagram-followers">...</span>
+                                </a>
+                                <a href="https://discord.gg/XsgpgvjQ8p" class="social-link" target="_blank">
+                                    <i class="fab fa-discord"></i>
+                                    <span>Discord</span>
+                                    <span class="followers-count" id="discord-members">...</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Member Since -->
+                        <div class="profile-section">
+                            <h3>MIEMBRO DESDE</h3>
+                            <div class="member-info">
+                                <div class="member-item">
+                                    <i class="fab fa-discord"></i>
+                                    <span>13 de agosto de 2009</span>
+                                </div>
+                                <div class="member-item">
+                                    <i class="fas fa-code"></i>
+                                    <span>JavaScript, HTML5, CSS3, Linux</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Note -->
+                        <div class="profile-section">
+                            <h3>PROYECTO DESTACADO</h3>
+                            <div class="project-banner"></div>
+                            <p class="note">
+                                <span class="project-title">FNF: Genesis Engine</span>
+                                <span class="project-stars">
+                                    <i class="fas fa-star"></i>
+                                    <span id="stars-count"></span> estrellas
+                                </span>
+                                <br><br>
+                                Herramienta de modding para Friday Night Funkin' creada en JavaScript. Diseñada para permitir la creación de mods sin necesidad de scripts, máxima accesibilidad sin código adicional. Disponible en GitHub con demo funcional y documentación completa.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
