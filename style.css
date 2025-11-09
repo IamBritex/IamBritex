@@ -1,0 +1,387 @@
+/* --- 1. TUS VARIABLES Y ESTILOS GLOBALES --- */
+:root {
+    /* Tu paleta de colores */
+    --primary-bg: #000000;
+    --secondary-bg: #000000;
+    --accent-bg: #000000;
+    --primary-text: #ffffff;
+    --secondary-text: #ffffff;
+    --accent-color: #ffffff;
+    --border-color: #ffffff;
+    --hover-bg: #ffffff;
+    --hover-text: #000000;
+
+    /* Tus variables de UI */
+    --transition: all 0.3s ease;
+    --blur-backdrop: rgba(0, 0, 0, 0.8);
+    --shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+    --border-radius: 8px;
+    --spacing-xs: 8px;
+    --spacing-sm: 16px;
+    --spacing-md: 24px;
+    --spacing-lg: 32px;
+    --spacing-xl: 48px;
+
+    /* Fuentes que elegimos */
+    --font-primary: 'Roboto', sans-serif;
+    --font-display: 'Montserrat', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--primary-bg);
+    color: var(--primary-text);
+    font-family: var(--font-primary);
+    padding: var(--spacing-lg) var(--spacing-xl);
+    min-height: 100vh;
+}
+
+p {
+    font-size: 1rem;
+    line-height: 1.7;
+    font-weight: 300;
+    opacity: 0.85;
+}
+
+/* --- 2. ENCABEZADO DE IDENTIDAD (MODIFICADO PARA BANNER DETRÁS) --- */
+.profile-header {
+    position: relative;
+    /* Contenedor para el pseudo-elemento */
+    overflow: hidden;
+    /* Esconde el desbordamiento del blur */
+
+    /* Estilos de la caja principal del header */
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    margin-bottom: var(--spacing-lg);
+}
+
+/* El pseudo-elemento que crea el banner con blur */
+.profile-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* El banner ocupa todo el espacio del header */
+
+    /* ¡IMPORTANTE! La URL de tu GIF, asegúrate de que es correcta */
+    background-image: url('6bb3e52b37208e92e437deb6554bd99b.gif');
+
+    background-size: cover;
+    background-position: center;
+
+    /* El BLUR y el filtro B&W */
+    filter: blur(8px) grayscale(0%) brightness(1);
+    transform: scale(1.1);
+    /* Agranda para evitar bordes duros con el blur */
+    z-index: 0;
+    /* Detrás de todo el contenido del header */
+    transition: filter var(--transition);
+}
+
+
+
+/* El contenido (PFP, texto) que va ENCIMA del banner borroso */
+.header-content-wrapper {
+    position: relative;
+    /* Para que esté sobre el ::before */
+    z-index: 1;
+    /* Asegura que está encima del banner (z-index: 0) */
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--spacing-md);
+
+    padding: var(--spacing-lg);
+    /* Espacio para el contenido */
+
+    /* Fondo semi-transparente para mejorar la legibilidad sobre el blur */
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: var(--border-radius);
+    /* Para que coincida con el header */
+}
+
+.pfp-container {
+    position: relative;
+}
+
+.pfp {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid var(--border-color);
+    background-color: #333;
+    background-size: cover;
+    background-position: center;
+    transition: var(--transition);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    /* Sombra para destacar */
+}
+
+.pfp:hover {
+    transform: scale(1.05) rotate(-4deg);
+    box-shadow: var(--shadow);
+}
+
+.profile-info {
+    flex: 1;
+}
+
+.username {
+    font-family: var(--font-display);
+    font-size: var(--spacing-xl);
+    font-weight: 700;
+    line-height: 1.1;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+    /* Para legibilidad sobre el blur */
+}
+
+.display-name {
+    font-size: 1.5rem;
+    font-weight: 300;
+    opacity: 0.8;
+    margin-bottom: var(--spacing-xs);
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.custom-status {
+    font-style: italic;
+    opacity: 0.9;
+    font-size: 1.1rem;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.custom-status i {
+    margin-right: var(--spacing-xs);
+}
+
+.profile-badges {
+    margin-top: var(--spacing-sm);
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+.badge {
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Fondo semitransparente */
+    backdrop-filter: blur(5px);
+    /* Efecto "frosty glass" en las insignias */
+    color: var(--primary-text);
+    border: 1px solid var(--border-color);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--border-radius);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+.badge:hover {
+    background-color: var(--hover-bg);
+    color: var(--hover-text);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+}
+
+/* --- 3. LAYOUT DE CONTENIDO (NO MÁS RECORTES) --- */
+.content-wrapper {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    /* División 2/3 - 1/3 */
+    gap: var(--spacing-lg);
+}
+
+.profile-section {
+    background-color: var(--secondary-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-md);
+    transition: var(--transition);
+}
+
+.profile-section:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+    border-color: var(--accent-color);
+}
+
+.profile-section h3 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 1px solid var(--border-color);
+    opacity: 0.8;
+}
+
+#about p {
+    margin-bottom: var(--spacing-sm);
+}
+
+/* --- ESTILOS PARA "ACERCA DE MÍ" --- */
+#about blockquote {
+    padding-left: var(--spacing-sm);
+    border-left: 3px solid var(--border-color);
+    margin: var(--spacing-md) 0;
+    font-style: italic;
+    font-size: 1.1rem;
+    opacity: 1;
+    font-weight: 400;
+    color: var(--primary-text);
+    transition: var(--transition);
+}
+
+#about blockquote:hover {
+    border-left-color: var(--hover-bg);
+}
+
+.github-stats-card {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+    margin-top: var(--spacing-md);
+    border: 1px solid var(--border-color);
+    /* Añadido borde para tu estilo B&W */
+    box-shadow: var(--shadow);
+    /* Sombra para que destaque */
+    transition: var(--transition);
+}
+
+.github-stats-card:hover {
+    transform: scale(1.01);
+    /* Un pequeño zoom al pasar el ratón */
+    box-shadow: 0 6px 25px rgba(255, 255, 255, 0.2);
+}
+
+
+/* --- 4. SECCIONES DE LA DERECHA (SIDEBAR) --- */
+
+/* Proyecto Destacado */
+.project-banner {
+    height: 150px;
+    border-radius: var(--border-radius);
+    margin-bottom: var(--spacing-sm);
+    border: 1px solid var(--border-color);
+    background-image: url('proyecto.webp');
+    background-size: cover;
+    background-position: center;
+    filter: grayscale(100%);
+    transition: var(--transition);
+}
+
+.profile-section:hover .project-banner {
+    filter: grayscale(0%);
+}
+
+.project-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.2rem;
+    display: block;
+}
+
+.project-stars {
+    font-size: 0.9rem;
+    opacity: 0.7;
+    margin-bottom: var(--spacing-sm);
+    display: block;
+}
+
+.project-stars i {
+    color: var(--border-color);
+}
+
+/* Redes Sociales */
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    padding: var(--spacing-sm);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    color: var(--primary-text);
+    transition: var(--transition);
+}
+
+.social-link:hover {
+    background-color: var(--hover-bg);
+    color: var(--hover-text);
+}
+
+.social-link i {
+    width: 30px;
+    font-size: 1.5rem;
+    margin-right: var(--spacing-xs);
+    text-align: center;
+}
+
+.social-link span {
+    flex-grow: 1;
+    font-weight: 500;
+}
+
+.followers-count {
+    font-size: var(--font-size-sm);
+    opacity: 0.7;
+}
+
+.social-link:hover .followers-count {
+    opacity: 1;
+    font-weight: 700;
+}
+
+/* Habilidades */
+.member-item {
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.member-item i {
+    font-size: 1.5rem;
+}
+
+
+/* --- 5. DISEÑO RESPONSIVO --- */
+@media (max-width: 900px) {
+    .content-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    body {
+        padding: var(--spacing-lg) var(--spacing-md);
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: var(--spacing-md) var(--spacing-md);
+    }
+
+    .header-content-wrapper {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .username {
+        font-size: 2.5rem;
+    }
+}
