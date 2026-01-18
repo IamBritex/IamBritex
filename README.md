@@ -75,6 +75,8 @@ const britex = {
 
 ## Estadísticas de GitHub
 
+![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=IamBritex&theme=dark&hide_border=true)
+
 <div align="center">
   <img width="49%" src="https://github-readme-streak-stats.herokuapp.com/?user=IamBritex&theme=transparent&hide_border=true"/>
   <img width="49%" src="https://github-readme-streak-stats.herokuapp.com/?user=IamBritex&theme=transparent&hide_border=true"/>
