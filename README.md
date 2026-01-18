@@ -76,8 +76,8 @@ const britex = {
 ## Estadísticas de GitHub
 
 <div align="center">
-  <img width="49%" src="https://github-readme-stats.vercel.app/api?username=IamBritex&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true&hide_border=true&bg_color=0D1117&title_color=58A6FF&text_color=C9D1D9&icon_color=58A6FF"/>
-  <img width="49%" src="https://github-readme-streak-stats.herokuapp.com/?user=IamBritex&theme=tokyonight&hide_border=true&background=0D1117&stroke=58A6FF&ring=58A6FF&fire=FF6B6B&currStreakLabel=C9D1D9&sideLabels=C9D1D9&currStreakNum=58A6FF&sideNums=58A6FF"/>
+  <img width="49%" src="https://github-readme-streak-stats.herokuapp.com/?user=IamBritex&theme=transparent&hide_border=true"/>
+  <img width="49%" src="https://github-readme-streak-stats.herokuapp.com/?user=IamBritex&theme=transparent&hide_border=true"/>
 </div>
 
 <div align="center">
