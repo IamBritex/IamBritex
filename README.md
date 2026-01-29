@@ -15,11 +15,11 @@
 
 ## Sobre Mí
 
-<img align="right" src="https://i.pinimg.com/originals/37/a1/7e/37a17e2eae2d3b0fb0d3689c7bf41fbb.gif" width="280" alt="Anime aesthetic gif"/>
+<img align="right" src="https://i.pinimg.com/originals/37/a1/7e/37a17e2eae2d3b0fb0d3689c7bf41fbb.gif" width="280px" style="border-radius: 60px; margin-bottom: 30px 0;" alt="Anime aesthetic gif"/>
 
-Tengo 16 años y soy de México. Soy Desarrollador Full-Stack y Creador de Contenido. Mi pasión es hacer la tecnología accesible para todos, enfocándome actualmente en **Desarrollo Web** y **Modding de Videojuegos**.
+Tengo 16 años y soy de México. Soy Desarrollador Full-Stack y Creador de Contenido. Mi pasión es hacer la tecnología accesible para todos, enfocándome en crear herramientas eficientes y contenido educativo.
 
-Trabajo activamente en proyectos como **FNF: Genesis Engine**, creación de contenido educativo y contribuciones Open Source.
+Me especializo en entornos **Linux** y optimización de software.
 
 ## Stack Tecnológico
 
@@ -35,30 +35,27 @@ Trabajo activamente en proyectos como **FNF: Genesis Engine**, creación de cont
   <img src="https://skillicons.dev/icons?i=linux,windows,vscode,git,bash" />
 </p>
 
-### Game Development
-<p>
-  <img src="https://img.shields.io/badge/Haxe-EA8220?style=for-the-badge&logo=haxe&logoColor=white"/>
-  <img src="https://img.shields.io/badge/FNF%20Modding-FF6B6B?style=for-the-badge&logo=gamemaker&logoColor=white"/>
-</p>
-
 </div>
 
 ---
 
-## Actividad en GitHub
+## 🚀 Enfoque Actual
 
-[![GitHub Streak](http://github-readme-streak-stats.herokuapp.com?user=IamBritex&theme=highcontrast)](https://git.io/streak-stats)
+Actualmente estoy dedicando mi tiempo a proyectos como:
 
-[![GitHub Stats](https://github-readme-stats.vercel.app/api?username=IamBritex&show_icons=true&theme=highcontrast&include_all_commits=true&count_private=true)](https://github.com/anuraghazra/github-readme-stats)
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=IamBritex&layout=compact&theme=highcontrast&hide_border=true&langs_count=6)](https://github.com/anuraghazra/github-readme-stats)
+- **Desarrollo de Motores**: Creación de herramientas ligeras y modulares para videojuegos (Genesis Engine).
+- **Aplicaciones en Tiempo Real**: Sistemas de chat minimalistas y eficientes.
+- **Educación Open Source**: Compartiendo conocimiento sobre desarrollo web a través de YouTube.
 
 ---
 
-## Contacto
+<img align="left" src="https://i.pinimg.com/originals/e0/3e/01/e03e0117fa1633d70ac6e31853fc9246.gif" width="280px" style="border-radius: 60px; margin: 0px 0;" alt="Footer Gif"/>
+
+## Conectemos
 
 <div align="center">
   
-   **¿Tienes una idea o proyecto? ¡Hablemos!**
+   **¿Tienes una idea, duda o proyecto? ¡Hablemos!**
   
   <p>
     <a href="mailto:leivetd@gmail.com">

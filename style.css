@@ -1,29 +1,21 @@
-/* --- 1. TUS VARIABLES Y ESTILOS GLOBALES --- */
 :root {
-    /* Tu paleta de colores */
-    --primary-bg: #000000;
-    --secondary-bg: #000000;
-    --accent-bg: #000000;
-    --primary-text: #ffffff;
-    --secondary-text: #ffffff;
-    --accent-color: #ffffff;
-    --border-color: #ffffff;
-    --hover-bg: #ffffff;
-    --hover-text: #000000;
+    --bg-dark: #050505;
+    --card-bg: rgba(20, 20, 20, 0.7);
+    --primary: #ffffff;
+    --secondary: #a1a1aa;
+    
+    /* COLORES TEMA */
+    --accent: #FF6B35;
+    --accent-glow: rgba(255, 107, 53, 0.3);
+    
+    /* COLOR DISCORD (VERDE OFICIAL) */
+    --discord-green: #23a559;
+    --discord-glow: rgba(35, 165, 89, 0.5);
 
-    /* Tus variables de UI */
-    --transition: all 0.3s ease;
-    --blur-backdrop: rgba(0, 0, 0, 0.8);
-    --shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
-    --border-radius: 8px;
-    --spacing-xs: 8px;
-    --spacing-sm: 16px;
-    --spacing-md: 24px;
-    --spacing-lg: 32px;
-    --spacing-xl: 48px;
-
-    /* Fuentes que elegimos */
-    --font-primary: 'Roboto', sans-serif;
+    --wiki-gradient: linear-gradient(135deg, #FF6B35 0%, #d43f8d 100%);
+    
+    --border: rgba(255, 255, 255, 0.1);
+    --font-main: 'JetBrains Mono', monospace;
     --font-display: 'Montserrat', sans-serif;
 }
 
@@ -34,354 +26,386 @@
 }
 
 body {
-    background-color: var(--primary-bg);
-    color: var(--primary-text);
-    font-family: var(--font-primary);
-    padding: var(--spacing-lg) var(--spacing-xl);
+    background-color: var(--bg-dark);
+    color: var(--primary);
+    font-family: var(--font-main);
     min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    padding: 20px;
 }
 
-p {
-    font-size: 1rem;
-    line-height: 1.7;
-    font-weight: 300;
-    opacity: 0.85;
+.background-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 0%, #3a1e14 0%, var(--bg-dark) 70%);
+    z-index: -1;
 }
 
-/* --- 2. ENCABEZADO DE IDENTIDAD (MODIFICADO PARA BANNER DETRÁS) --- */
-.profile-header {
-    position: relative;
-    /* Contenedor para el pseudo-elemento */
+.main-container {
+    width: 100%;
+    max-width: 480px;
+    perspective: 1000px;
+}
+
+.profile-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--border);
+    border-radius: 24px;
     overflow: hidden;
-    /* Esconde el desbordamiento del blur */
-
-    /* Estilos de la caja principal del header */
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-radius);
-    margin-bottom: var(--spacing-lg);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    animation: slideUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-/* El pseudo-elemento que crea el banner con blur */
-.profile-header::before {
-    content: '';
+.banner-wrapper {
+    position: relative;
+    height: 140px;
+    overflow: hidden;
+}
+
+.banner-image {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    filter: blur(1px);
+    transform: scale(1.05);
+}
+
+.overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    /* El banner ocupa todo el espacio del header */
-
-    /* ¡IMPORTANTE! La URL de tu GIF, asegúrate de que es correcta */
-    background-image: url('6bb3e52b37208e92e437deb6554bd99b.gif');
-
-    background-size: cover;
-    background-position: center;
-
-    /* El BLUR y el filtro B&W */
-    filter: blur(8px) grayscale(0%) brightness(1);
-    transform: scale(1.1);
-    /* Agranda para evitar bordes duros con el blur */
-    z-index: 0;
-    /* Detrás de todo el contenido del header */
-    transition: filter var(--transition);
+    background: linear-gradient(to bottom, transparent 0%, var(--card-bg) 100%);
 }
 
-
-
-/* El contenido (PFP, texto) que va ENCIMA del banner borroso */
-.header-content-wrapper {
+.profile-header {
+    padding: 0 24px;
+    margin-top: -60px;
     position: relative;
-    /* Para que esté sobre el ::before */
-    z-index: 1;
-    /* Asegura que está encima del banner (z-index: 0) */
-
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: var(--spacing-md);
-
-    padding: var(--spacing-lg);
-    /* Espacio para el contenido */
-
-    /* Fondo semi-transparente para mejorar la legibilidad sobre el blur */
-    background-color: rgba(0, 0, 0, 0.4);
-    border-radius: var(--border-radius);
-    /* Para que coincida con el header */
+    z-index: 2;
+    text-align: center;
 }
 
 .pfp-container {
     position: relative;
+    width: 110px;
+    height: 110px;
+    margin: 0 auto 16px;
 }
 
 .pfp {
-    width: 120px;
-    height: 120px;
+    width: 100%;
+    height: 100%;
     border-radius: 50%;
-    border: 4px solid var(--border-color);
-    background-color: #333;
-    background-size: cover;
-    background-position: center;
-    transition: var(--transition);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-    /* Sombra para destacar */
+    border: 4px solid #18181b;
+    object-fit: cover;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
 }
 
-.pfp:hover {
-    transform: scale(1.05) rotate(-4deg);
-    box-shadow: var(--shadow);
-}
-
-.profile-info {
-    flex: 1;
+.status-indicator {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    width: 18px;
+    height: 18px;
+    /* CAMBIO A VERDE DISCORD */
+    background-color: var(--discord-green);
+    border: 3px solid #18181b;
+    border-radius: 50%;
+    /* BRILLO VERDE */
+    box-shadow: 0 0 10px var(--discord-glow);
 }
 
 .username {
     font-family: var(--font-display);
-    font-size: var(--spacing-xl);
-    font-weight: 700;
-    line-height: 1.1;
-    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
-    /* Para legibilidad sobre el blur */
-}
-
-.display-name {
-    font-size: 1.5rem;
-    font-weight: 300;
-    opacity: 0.8;
-    margin-bottom: var(--spacing-xs);
-    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
-}
-
-.custom-status {
-    font-style: italic;
-    opacity: 0.9;
-    font-size: 1.1rem;
-    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
-}
-
-.custom-status i {
-    margin-right: var(--spacing-xs);
-}
-
-.profile-badges {
-    margin-top: var(--spacing-sm);
+    font-size: 1.8rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin-bottom: 4px;
     display: flex;
-    gap: var(--spacing-sm);
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.verified-icon {
+    font-size: 1rem;
+    color: var(--accent);
+}
+
+.handle {
+    color: var(--secondary);
+    font-size: 0.95rem;
+    margin-bottom: 16px;
+}
+
+.badges {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
 }
 
 .badge {
-    background-color: rgba(0, 0, 0, 0.5);
-    /* Fondo semitransparente */
-    backdrop-filter: blur(5px);
-    /* Efecto "frosty glass" en las insignias */
-    color: var(--primary-text);
-    border: 1px solid var(--border-color);
-    padding: var(--spacing-xs) var(--spacing-sm);
-    border-radius: var(--border-radius);
-    font-family: var(--font-display);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border);
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.75rem;
     font-weight: 700;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.bio-section {
+    padding: 0 24px;
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.bio-text {
     font-size: 0.9rem;
-    transition: var(--transition);
+    line-height: 1.6;
+    color: #d4d4d8;
 }
 
-.badge:hover {
-    background-color: var(--hover-bg);
-    color: var(--hover-text);
-    transform: translateY(-3px);
-    box-shadow: var(--shadow);
+.wiki-access-section {
+    padding: 0 24px;
+    margin-bottom: 32px;
 }
 
-/* --- 3. LAYOUT DE CONTENIDO (NO MÁS RECORTES) --- */
-.content-wrapper {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    /* División 2/3 - 1/3 */
-    gap: var(--spacing-lg);
+.wiki-card {
+    display: flex;
+    align-items: center;
+    background: var(--wiki-gradient);
+    border-radius: 12px;
+    padding: 16px;
+    text-decoration: none;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 15px var(--accent-glow);
 }
 
-.profile-section {
-    background-color: var(--secondary-bg);
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-radius);
-    padding: var(--spacing-md);
-    transition: var(--transition);
+/* Efecto visual al presionar (Active) para simular botón físico */
+.wiki-card:active {
+    transform: scale(0.98);
 }
 
-.profile-section:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow);
-    border-color: var(--accent-color);
+.wiki-card:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 25px var(--accent-glow);
 }
 
-.profile-section h3 {
-    font-family: var(--font-display);
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: var(--spacing-md);
-    padding-bottom: var(--spacing-sm);
-    border-bottom: 1px solid var(--border-color);
-    opacity: 0.8;
-}
-
-#about p {
-    margin-bottom: var(--spacing-sm);
-}
-
-/* --- ESTILOS PARA "ACERCA DE MÍ" --- */
-#about blockquote {
-    padding-left: var(--spacing-sm);
-    border-left: 3px solid var(--border-color);
-    margin: var(--spacing-md) 0;
-    font-style: italic;
-    font-size: 1.1rem;
-    opacity: 1;
-    font-weight: 400;
-    color: var(--primary-text);
-    transition: var(--transition);
-}
-
-#about blockquote:hover {
-    border-left-color: var(--hover-bg);
-}
-
-.github-stats-card {
+.wiki-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
     width: 100%;
-    max-width: 100%;
-    height: auto;
-    border-radius: var(--border-radius);
-    margin-top: var(--spacing-md);
-    border: 1px solid var(--border-color);
-    /* Añadido borde para tu estilo B&W */
-    box-shadow: var(--shadow);
-    /* Sombra para que destaque */
-    transition: var(--transition);
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: 0.5s;
 }
 
-.github-stats-card:hover {
-    transform: scale(1.01);
-    /* Un pequeño zoom al pasar el ratón */
-    box-shadow: 0 6px 25px rgba(255, 255, 255, 0.2);
+.wiki-card:hover::before {
+    left: 100%;
 }
 
-
-/* --- 4. SECCIONES DE LA DERECHA (SIDEBAR) --- */
-
-/* Proyecto Destacado */
-.project-banner {
-    height: 150px;
-    border-radius: var(--border-radius);
-    margin-bottom: var(--spacing-sm);
-    border: 1px solid var(--border-color);
-    background-image: url('proyecto.webp');
-    background-size: cover;
-    background-position: center;
-    filter: grayscale(100%);
-    transition: var(--transition);
-}
-
-.profile-section:hover .project-banner {
-    filter: grayscale(0%);
-}
-
-.project-title {
-    font-family: var(--font-display);
-    font-weight: 700;
+.wiki-icon-box {
+    background: rgba(255, 255, 255, 0.2);
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 16px;
     font-size: 1.2rem;
-    display: block;
 }
 
-.project-stars {
-    font-size: 0.9rem;
-    opacity: 0.7;
-    margin-bottom: var(--spacing-sm);
-    display: block;
+.wiki-info {
+    flex: 1;
 }
 
-.project-stars i {
-    color: var(--border-color);
+.wiki-info h4 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1rem;
+    line-height: 1.2;
 }
 
-/* Redes Sociales */
-.social-links {
+.wiki-info p {
+    font-size: 0.75rem;
+    opacity: 0.9;
+}
+
+.wiki-arrow {
+    background: #fff;
+    color: var(--accent);
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8rem;
+}
+
+
+.section-title {
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    color: var(--secondary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.stack-section, .focus-section, .socials-section {
+    padding: 0 24px;
+    margin-bottom: 32px;
+}
+
+.stack-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.stack-item {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border);
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 0.8rem;
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-sm);
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
 }
 
-.social-link {
+.stack-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+}
+
+.stack-item i {
+    font-size: 1.2rem;
+    color: var(--accent);
+}
+
+.focus-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.focus-card {
     display: flex;
     align-items: center;
-    padding: var(--spacing-sm);
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-radius);
+    gap: 16px;
+    background: linear-gradient(90deg, rgba(255,255,255,0.03) 0%, transparent 100%);
+    border-left: 2px solid var(--accent);
+    padding: 12px 16px;
+    border-radius: 0 8px 8px 0;
+}
+
+.focus-card i {
+    font-size: 1.2rem;
+    color: var(--accent);
+}
+
+.focus-info h4 {
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 2px;
+}
+
+.focus-info p {
+    font-size: 0.8rem;
+    color: var(--secondary);
+}
+
+.socials-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px;
+    border-radius: 8px;
     text-decoration: none;
-    color: var(--primary-text);
-    transition: var(--transition);
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.social-link:hover {
-    background-color: var(--hover-bg);
-    color: var(--hover-text);
+.social-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
-.social-link i {
-    width: 30px;
-    font-size: 1.5rem;
-    margin-right: var(--spacing-xs);
+.social-btn.github { background: #181717; color: #fff; }
+.social-btn.youtube { background: #ff0000; color: #fff; }
+.social-btn.discord { background: #5865F2; color: #fff; grid-column: span 2; }
+.social-btn.email { background: transparent; border: 1px solid var(--border); color: var(--secondary); grid-column: span 2; }
+.social-btn.email:hover { border-color: var(--accent); color: var(--accent); }
+
+.profile-footer {
+    padding: 24px;
     text-align: center;
+    border-top: 1px solid var(--border);
+    background: rgba(0,0,0,0.2);
 }
 
-.social-link span {
-    flex-grow: 1;
-    font-weight: 500;
+.footer-gif {
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    opacity: 0.8;
+    border: 1px solid var(--border);
 }
 
-.followers-count {
-    font-size: var(--font-size-sm);
+.footer-text {
+    font-size: 0.8rem;
+    color: var(--secondary);
+    font-weight: 700;
+    letter-spacing: 0.5px;
     opacity: 0.7;
 }
 
-.social-link:hover .followers-count {
-    opacity: 1;
-    font-weight: 700;
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-/* Habilidades */
-.member-item {
-    font-size: 1.1rem;
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-sm);
-}
-
-.member-item i {
-    font-size: 1.5rem;
-}
-
-
-/* --- 5. DISEÑO RESPONSIVO --- */
-@media (max-width: 900px) {
-    .content-wrapper {
-        grid-template-columns: 1fr;
-    }
-
-    body {
-        padding: var(--spacing-lg) var(--spacing-md);
-    }
-}
-
-@media (max-width: 600px) {
-    body {
-        padding: var(--spacing-md) var(--spacing-md);
-    }
-
-    .header-content-wrapper {
-        flex-direction: column;
-        align-items: flex-start;
-        text-align: left;
-    }
-
-    .username {
-        font-size: 2.5rem;
-    }
+@media (max-width: 400px) {
+    .stack-grid { grid-template-columns: repeat(2, 1fr); }
+    .socials-section { grid-template-columns: 1fr; }
+    .social-btn.discord, .social-btn.email { grid-column: auto; }
 }
